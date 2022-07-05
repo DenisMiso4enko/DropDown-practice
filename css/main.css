@@ -82,6 +82,8 @@ h1 {
 	border-radius: 10px;
 	width: 100%;
 
+    z-index: 10;
+
 	
 }
 .dropdown-list__item {

@@ -1,8 +1,9 @@
-// 
-const dropDownBtn = document.querySelector('.dropdown-btn')
-const dropDownList = document.querySelector('.dropdown-list')
-const list = document.querySelectorAll('.dropdown-list__item')
-const dropDown = document.querySelector('.dropdown')
+document.querySelectorAll('.dropdown-wrapper').forEach(function(dropwrap) {
+    // 
+const dropDownBtn = dropwrap.querySelector('.dropdown-btn')
+const dropDownList = dropwrap.querySelector('.dropdown-list')
+const list = dropwrap.querySelectorAll('.dropdown-list__item')
+const dropDown = dropwrap.querySelector('.dropdown')
 console.log(dropDown);
 // 
 
@@ -19,6 +20,7 @@ list.forEach(function(item) {
         dropDownBtn.innerText = this.innerText
         dropDownList.classList.remove('visible')
         dropDownBtn.classList.remove('active')
+        dropDown.classList.toggle('show')
     })
 })
 // 
@@ -27,5 +29,15 @@ document.addEventListener('click', function(e) {
     if (e.target !== dropDownBtn) {
         dropDownBtn.classList.remove('active')
         dropDownList.classList.remove('visible')
+        dropDown.classList.toggle('show')
     }
+})
+// Закрыть по клавишам tab и esc
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab' || e.key === 'Escape') {
+        dropDownBtn.classList.remove('active')
+        dropDownList.classList.remove('visible')
+        dropDown.classList.toggle('show')
+    }
+})
 })
